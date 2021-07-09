@@ -3,12 +3,7 @@
     <h2>Login</h2>
     <form>
       <label for="email">Email</label>
-      <input
-        type="text"
-        id="email"
-        name="email"
-        placeholder="Digite seu email"
-      />
+      <input type="tel" id="tel" name="email" placeholder="Digite seu email" />
       <label for="password">Senha</label>
       <input
         type="password"
@@ -32,6 +27,7 @@ export default {
       this.$router.push({ name: "Home" });
     },
   },
+  created() {},
 };
 </script>
 
