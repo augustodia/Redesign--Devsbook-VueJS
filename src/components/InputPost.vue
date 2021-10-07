@@ -12,7 +12,7 @@ export default {
 };
 </script>
 
-<style scoped>
+<style>
 .input-post {
   display: flex;
   border-radius: 8px;

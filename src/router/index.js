@@ -4,7 +4,7 @@ import Home from "@/views/Home.vue";
 import Posts from "@/components/Posts.vue";
 import Login from "@/views/Login.vue";
 import LoginForm from "@/components/LoginForm.vue";
-// import CadastroForm from "@/components/CadastroForm.vue";
+import CadastroForm from "@/components/CadastroForm.vue";
 import Perfil from "@/views/Perfil.vue";
 
 Vue.use(VueRouter);
@@ -30,26 +30,20 @@ export default new VueRouter({
       ],
     },
     {
-      path: "/login",
+      path: "/",
       component: Login,
       children: [
         {
-          path: "",
+          path: "login",
           name: "Login",
           component: LoginForm,
         },
+        {
+          path: "cadastro",
+          name: "Cadastro",
+          component: CadastroForm,
+         },
       ],
     },
-    // {
-    //   path: "/cadastro",
-    //   component: Login,
-    //   children: [
-    //     {
-    //       path: "",
-    //       name: "Cadastro",
-    //       component: CadastroForm,
-    //     },
-    //   ],
-    // },
   ],
 });

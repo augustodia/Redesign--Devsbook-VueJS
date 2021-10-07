@@ -29,14 +29,13 @@ header {
 
 input {
   padding: 8px 16px 8px 48px;
-  border: 1.5px solid transparent;
   font-size: 14px;
   font-weight: 500;
   outline: none;
   color: #0d0d0d;
   margin-bottom: 0px;
   width: 100%;
-  box-shadow: 0px 0px 3px rgb(0 0 0 / 10%);
+  box-shadow: 0px 0px 1px rgb(0 0 0 / 10%);
 }
 
 .logo {
@@ -58,7 +57,7 @@ input {
 }
 .input-search {
   height: 36px;
-  box-shadow: inset 3px 3px 12px rgba(0, 0, 0, 0.1);
+  box-shadow: inset 1px 1px 3px rgba(0, 0, 0, 0.1);
   border-radius: 8px;
   transition: all 0.3s;
   position: relative;
