@@ -20,21 +20,21 @@
       </div>
     </div>
     <div class="content-perfil">
-    <div class="more-info-perfil">
-      <div class="item">
-        <img class="ico" src="@/assets/calendar.svg" alt="">
-        <p>05/11/1997</p>
+      <div class="more-info-perfil">
+        <div class="item">
+          <img class="ico" src="@/assets/calendar.svg" alt="" />
+          <p>05/11/1997</p>
+        </div>
+        <div class="item">
+          <img class="ico" src="@/assets/map-pin.svg" alt="" />
+          <p>Palmital - PR</p>
+        </div>
+        <div class="item">
+          <img class="ico" src="@/assets/work.svg" alt="" />
+          <p>Desenvolvedor de Software</p>
+        </div>
       </div>
-      <div class="item">
-        <img class="ico" src="@/assets/map-pin.svg" alt="">
-        <p>Palmital - PR</p>
-      </div>
-      <div class="item">
-        <img class="ico" src="@/assets/work.svg" alt="">
-        <p>Desenvolvedor de Software</p>
-      </div>
-    </div>
-    <posts></posts>
+      <posts></posts>
     </div>
   </div>
 </template>
@@ -44,8 +44,8 @@ import Posts from "@/components/Posts.vue";
 export default {
   name: "Perfil",
   components: {
-  Posts
-  }
+    Posts,
+  },
 };
 </script>
 

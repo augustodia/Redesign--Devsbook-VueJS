@@ -7,7 +7,7 @@
   </div>
 </template>
 
-<script scoped>
+<script>
 export default {
   name: "Login",
   methods: {
