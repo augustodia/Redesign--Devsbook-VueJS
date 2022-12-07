@@ -1,0 +1,11 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "nome": "Luiz Augusto",
+      "email": "a@a.com",
+      "data_nascimento": "00/00/1999",
+      "password": "123"
+    }
+  ]
+}

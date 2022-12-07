@@ -1,22 +1,81 @@
+<script setup lang="ts">
+import axios from "axios";
+import { ref } from "vue";
+import { useRouter } from "vue-router";
+
+type DadosCadastro = {
+  nome: string;
+  email: string;
+  password: string;
+  dataNascimento: string;
+};
+
+type Response = {
+  data: DadosCadastro[];
+};
+
+const dadosCadastro = ref<DadosCadastro>({
+  nome: "",
+  email: "",
+  password: "",
+  dataNascimento: "",
+});
+
+const $router = useRouter();
+
+const logar = async () => {
+  if (
+    !dadosCadastro.value.nome ||
+    !dadosCadastro.value.email ||
+    !dadosCadastro.value.password ||
+    !dadosCadastro.value.dataNascimento
+  ) {
+    return;
+  }
+  let userDB: Response = await axios.get(
+    `http://localhost:3000/users?email=${dadosCadastro.value.email}`
+  );
+
+  console.log(userDB);
+  if (userDB?.data?.some((user) => user.email == dadosCadastro.value.email)) {
+    return;
+  }
+
+  let response = await axios.post("http://localhost:3000/users", {
+    ...dadosCadastro.value,
+  });
+  console.log(response);
+  $router.push({ name: "Home" });
+};
+</script>
+
 <template>
   <div class="login-form">
     <h2>Cadastro</h2>
     <form>
       <label for="nome">Nome</label>
-      <input type="text" id="nome" name="nome" placeholder="Digite seu nome" />
+      <input
+        type="text"
+        id="nome"
+        name="nome"
+        placeholder="Digite seu nome"
+        v-model="dadosCadastro.nome"
+      />
       <label for="email">Email</label>
       <input
         type="text"
         id="email"
         name="email"
         placeholder="Digite seu email"
+        v-model="dadosCadastro.email"
       />
       <label for="birth">Data de nascimento</label>
       <input
-        type="text"
+        type="date"
         id="birth"
         name="birth"
         placeholder="Digite sua data de nascimento"
+        v-model="dadosCadastro.dataNascimento"
       />
       <label for="password">Senha</label>
       <input
@@ -24,6 +83,7 @@
         id="password"
         name="password"
         placeholder="Digite sua senha"
+        v-model="dadosCadastro.password"
       />
       <button class="btn" @click.prevent="logar">Cadastrar</button>
       <router-link class="no-account" :to="{ name: 'Login' }"
@@ -32,17 +92,6 @@
     </form>
   </div>
 </template>
-
-<script scoped>
-export default {
-  name: "Cadastro",
-  methods: {
-    logar() {
-      this.$router.push({ name: "Home" });
-    },
-  },
-};
-</script>
 
 <style scoped>
 .login-container {

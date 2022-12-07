@@ -17,7 +17,7 @@
 <script lang="ts">
 import InputPost from "@/components/InputPost.vue";
 import ThePost from "@/components/ThePost.vue";
-// import axios from "axios";
+import axios from "axios";
 export default {
   components: { InputPost, ThePost },
   name: "Posts",
@@ -27,12 +27,12 @@ export default {
     };
   },
   methods: {
-    // getPosts() {
-    //   axios.get("http://localhost:3000/posts").then((response) => {
-    //     this.posts = response.data;
-    //     console.log(response.data);
-    //   });
-    // },
+    getPosts() {
+      axios.get("http://localhost:3000/posts").then((response) => {
+        this.posts = response.data;
+        console.log(response.data);
+      });
+    },
   },
   created() {
     this.getPosts();
